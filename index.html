@@ -2,11 +2,25 @@
 <html>
 <head>
 	<title>World Wide Travel Guides</title>
-	 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
 </head>
-<body>
 
+<!-- The ngApp directive designates the root element of the application. -->
+<body ng-app="BookApp">
 
+<!-- The ngController directive attaches a controller class to the view -->
+<div ng-controller="bookCtrl">
+
+	<!--The ngRepeat directive allows you to iterate over the properties of an object  -->
+	<div ng-repeat="book in bookItems">
+		<div>{{book.title}}</div>
+		<div>${{book.price.toFixed(2)}}</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/controllers/bookCtrl.js"></script>
 
 </body>
 </html>
