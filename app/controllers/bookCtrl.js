@@ -1,28 +1,10 @@
 "use strict";
 
-console.log("bookCtrl.js");
-
-app.controller('bookCtrl', function($scope){
+app.controller('bookCtrl', function($scope, GuideStorage){
 	
-$scope.bookItems = []; //data from promise
-
-function getBooks(){
-	return new Promise((resolve, reject) => {
-		$.ajax({
-			url: `../data/guides.json`,
-		}).done(function(data) {
-			resolve(data.guides);
-		}).fail((error) => {
-			reject(error);
-		});
-	});
-}
-
-getBooks()
-	.then(data => {
-		console.log(data);
-		$scope.bookItems = data;
-		$scope.$apply();
-		console.log($scope.bookItems);
-	});
+	GuideStorage.getBooks()
+		.then( (dataFromFactory) => {
+			$scope.bookItems = dataFromFactory;
+			$scope.$apply();
+	}); 
 });
