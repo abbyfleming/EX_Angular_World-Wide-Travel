@@ -1,0 +1,5 @@
+<!--The ngRepeat directive allows you to iterate over the properties of an object  -->
+	<div ng-repeat="book in bookItems">
+		<div>{{book.title}}</div>
+		<div>${{book.price.toFixed(2)}}</div>
+	</div>

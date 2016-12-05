@@ -10,15 +10,9 @@
 <!-- The ngApp directive designates the root element of the application. -->
 <body ng-app="BookApp">
 
-<!-- The ngController directive attaches a controller class to the view -->
-<div ng-controller="bookCtrl">
+	<!--Partials are just like the Handlebar files you created in the previous Music History version. You'll be creating (usually) small HTML files that will be responsible for doing one thing only. -->
+	<div ng-view></div>
 
-	<!--The ngRepeat directive allows you to iterate over the properties of an object  -->
-	<div ng-repeat="book in bookItems">
-		<div>{{book.title}}</div>
-		<div>${{book.price.toFixed(2)}}</div>
-	</div>
-</div>
 
 <!-- SCRIPTS: APP & FACTORIES -->
 <script type="text/javascript" src="app/app.js"></script>
